@@ -1,88 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trace Viz Index</title>
+  <title>AgentBench 可视化追踪</title>
   <style>
-    body { font-family: system-ui, sans-serif; margin: 2rem; background: #f7f7f7; color: #111; }
-    h1 { margin-bottom: 0.5rem; }
-    p { margin-top: 0; color: #555; }
-    ul { padding-left: 1.2rem; line-height: 1.7; }
-    li { margin-bottom: 0.4rem; }
-    a { color: #0366d6; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    code { background: #eee; padding: 0.1rem 0.25rem; border-radius: 3px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: #1a1a2e;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 2.5rem;
+      font-size: 1.05rem;
+    }
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid transparent;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #0366d6;
+    }
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .card-icon.verified { background: #dbeafe; color: #2563eb; }
+    .card-icon.legacy  { background: #fef3c7; color: #d97706; }
+    .card-icon.rebench { background: #d1fae5; color: #059669; }
+    .card-content h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .card-content p {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+    .card-arrow {
+      margin-left: auto;
+      font-size: 1.2rem;
+      color: #9ca3af;
+      transition: color 0.2s;
+    }
+    .card:hover .card-arrow { color: #0366d6; }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
   </style>
 </head>
 <body>
-  <h2>Visualized Traces from SWE-Bench-Verified</h2>
-  <p>64 traces in total</p>
-  <ul>
-    <li><a href="astropy__astropy-12907_attempt_1.html">astropy__astropy-12907_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-13033_attempt_1.html">astropy__astropy-13033_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-13236_attempt_1.html">astropy__astropy-13236_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-13398_attempt_1.html">astropy__astropy-13398_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-13453_attempt_1.html">astropy__astropy-13453_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-13579_attempt_1.html">astropy__astropy-13579_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-13977_attempt_1.html">astropy__astropy-13977_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14096_attempt_1.html">astropy__astropy-14096_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14182_attempt_1.html">astropy__astropy-14182_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14309_attempt_1.html">astropy__astropy-14309_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14365_attempt_1.html">astropy__astropy-14365_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14369_attempt_1.html">astropy__astropy-14369_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14508_attempt_1.html">astropy__astropy-14508_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14539_attempt_1.html">astropy__astropy-14539_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14598_attempt_1.html">astropy__astropy-14598_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-14995_attempt_1.html">astropy__astropy-14995_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-7166_attempt_1.html">astropy__astropy-7166_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-7336_attempt_1.html">astropy__astropy-7336_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-7606_attempt_1.html">astropy__astropy-7606_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-7671_attempt_1.html">astropy__astropy-7671_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-8707_attempt_1.html">astropy__astropy-8707_attempt_1.html</a></li>
-    <li><a href="astropy__astropy-8872_attempt_1.html">astropy__astropy-8872_attempt_1.html</a></li>
-    <li><a href="django__django-10097_attempt_1.html">django__django-10097_attempt_1.html</a></li>
-    <li><a href="django__django-10554_attempt_1.html">django__django-10554_attempt_1.html</a></li>
-    <li><a href="django__django-10880_attempt_1.html">django__django-10880_attempt_1.html</a></li>
-    <li><a href="django__django-10914_attempt_1.html">django__django-10914_attempt_1.html</a></li>
-    <li><a href="django__django-10973_attempt_1.html">django__django-10973_attempt_1.html</a></li>
-    <li><a href="django__django-10999_attempt_1.html">django__django-10999_attempt_1.html</a></li>
-    <li><a href="django__django-11066_attempt_1.html">django__django-11066_attempt_1.html</a></li>
-    <li><a href="django__django-11087_attempt_1.html">django__django-11087_attempt_1.html</a></li>
-    <li><a href="django__django-11095_attempt_1.html">django__django-11095_attempt_1.html</a></li>
-    <li><a href="django__django-11099_attempt_1.html">django__django-11099_attempt_1.html</a></li>
-    <li><a href="django__django-11119_attempt_1.html">django__django-11119_attempt_1.html</a></li>
-    <li><a href="django__django-11133_attempt_1.html">django__django-11133_attempt_1.html</a></li>
-    <li><a href="django__django-11138_attempt_1.html">django__django-11138_attempt_1.html</a></li>
-    <li><a href="django__django-11141_attempt_1.html">django__django-11141_attempt_1.html</a></li>
-    <li><a href="django__django-11149_attempt_1.html">django__django-11149_attempt_1.html</a></li>
-    <li><a href="django__django-11163_attempt_1.html">django__django-11163_attempt_1.html</a></li>
-    <li><a href="django__django-11179_attempt_1.html">django__django-11179_attempt_1.html</a></li>
-    <li><a href="django__django-11206_attempt_1.html">django__django-11206_attempt_1.html</a></li>
-    <li><a href="django__django-11211_attempt_1.html">django__django-11211_attempt_1.html</a></li>
-    <li><a href="django__django-11239_attempt_1.html">django__django-11239_attempt_1.html</a></li>
-    <li><a href="django__django-11265_attempt_1.html">django__django-11265_attempt_1.html</a></li>
-    <li><a href="django__django-11276_attempt_1.html">django__django-11276_attempt_1.html</a></li>
-    <li><a href="django__django-11292_attempt_1.html">django__django-11292_attempt_1.html</a></li>
-    <li><a href="django__django-11299_attempt_1.html">django__django-11299_attempt_1.html</a></li>
-    <li><a href="django__django-11333_attempt_1.html">django__django-11333_attempt_1.html</a></li>
-    <li><a href="django__django-11400_attempt_1.html">django__django-11400_attempt_1.html</a></li>
-    <li><a href="django__django-11433_attempt_1.html">django__django-11433_attempt_1.html</a></li>
-    <li><a href="django__django-11451_attempt_1.html">django__django-11451_attempt_1.html</a></li>
-    <li><a href="django__django-11477_attempt_1.html">django__django-11477_attempt_1.html</a></li>
-    <li><a href="django__django-11490_attempt_1.html">django__django-11490_attempt_1.html</a></li>
-    <li><a href="django__django-11532_attempt_1.html">django__django-11532_attempt_1.html</a></li>
-    <li><a href="django__django-11551_attempt_1.html">django__django-11551_attempt_1.html</a></li>
-    <li><a href="django__django-11555_attempt_1.html">django__django-11555_attempt_1.html</a></li>
-    <li><a href="django__django-11603_attempt_1.html">django__django-11603_attempt_1.html</a></li>
-    <li><a href="django__django-11728_attempt_1.html">django__django-11728_attempt_1.html</a></li>
-    <li><a href="django__django-11734_attempt_1.html">django__django-11734_attempt_1.html</a></li>
-    <li><a href="django__django-11740_attempt_1.html">django__django-11740_attempt_1.html</a></li>
-    <li><a href="django__django-11749_attempt_1.html">django__django-11749_attempt_1.html</a></li>
-    <li><a href="django__django-11790_attempt_1.html">django__django-11790_attempt_1.html</a></li>
-    <li><a href="django__django-11815_attempt_1.html">django__django-11815_attempt_1.html</a></li>
-    <li><a href="django__django-11820_attempt_1.html">django__django-11820_attempt_1.html</a></li>
-    <li><a href="django__django-11848_attempt_1.html">django__django-11848_attempt_1.html</a></li>
-  </ul>
+  <div class="container">
+    <h1>📊 AgentBench 可视化追踪</h1>
+    <p class="subtitle">点击下方目录浏览对应的 benchmark 追踪数据</p>
+
+    <div class="card-grid">
+      <a class="card" href="swe-bench-verified/index.html">
+        <div class="card-icon verified">📋</div>
+        <div class="card-content">
+          <h2>swe-bench-verified</h2>
+          <p>前 64 个 case</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="swe-bench-verified-legacy/index.html">
+        <div class="card-icon legacy">📂</div>
+        <div class="card-content">
+          <h2>swe-bench-verified (旧数据)</h2>
+          <p>前 81 个 case (旧数据)</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="swe-rebench/index.html">
+        <div class="card-icon rebench">🔄</div>
+        <div class="card-content">
+          <h2>swe-rebench</h2>
+          <p>前 47 个 case</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+
+    <footer>AgentBench &mdash; SWE-bench Trace Visualizer</footer>
+  </div>
 </body>
 </html>
