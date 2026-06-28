@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent 并发测试 - AgentBench</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container { max-width: 600px; width: 100%; }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.25rem;
+      color: #1a1a2e;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid transparent;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #7c3aed;
+    }
+    .card-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+      background: #ede9fe; color: #7c3aed;
+    }
+    .card-content h2 {
+      font-size: 1.15rem; font-weight: 600; margin-bottom: 0.2rem;
+    }
+    .card-content p {
+      font-size: 0.85rem; color: #6b7280;
+    }
+    .card-arrow {
+      margin-left: auto; font-size: 1.2rem; color: #9ca3af;
+      transition: color 0.2s;
+    }
+    .card:hover .card-arrow { color: #7c3aed; }
+    .back-link {
+      display: inline-block; margin-bottom: 1.5rem;
+      color: #6b7280; text-decoration: none; font-size: 0.9rem;
+    }
+    .back-link:hover { color: #0366d6; }
+    footer {
+      margin-top: 2.5rem; text-align: center;
+      font-size: 0.85rem; color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html">← 返回首页</a>
+    <h1>⚡ Agent 并发测试</h1>
+    <p class="subtitle">选择并发数查看系统资源时间线</p>
+
+    <div class="card-grid">
+      <a class="card" href="160.html">
+        <div class="card-icon">①</div>
+        <div class="card-content">
+          <h2>并发数: 160</h2>
+          <p>CPU / Memory / Network 资源追踪</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="320.html">
+        <div class="card-icon">②</div>
+        <div class="card-content">
+          <h2>并发数: 320</h2>
+          <p>CPU / Memory / Network 资源追踪</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="640.html">
+        <div class="card-icon">③</div>
+        <div class="card-content">
+          <h2>并发数: 640</h2>
+          <p>CPU / Memory / Network 资源追踪</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="1280.html">
+        <div class="card-icon">④</div>
+        <div class="card-content">
+          <h2>并发数: 1280</h2>
+          <p>CPU / Memory / Network 资源追踪</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+
+    <footer>AgentBench &mdash; Agent Benchmark Trace Visualizer</footer>
+  </div>
+</body>
+</html>
