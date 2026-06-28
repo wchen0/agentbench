@@ -66,9 +66,10 @@
       font-size: 1.4rem;
       flex-shrink: 0;
     }
-    .card-icon.verified { background: #dbeafe; color: #2563eb; }
-    .card-icon.legacy  { background: #fef3c7; color: #d97706; }
-    .card-icon.rebench { background: #d1fae5; color: #059669; }
+    .card-icon.verified     { background: #dbeafe; color: #2563eb; }
+    .card-icon.legacy      { background: #fef3c7; color: #d97706; }
+    .card-icon.rebench     { background: #d1fae5; color: #059669; }
+    .card-icon.concurrency { background: #ede9fe; color: #7c3aed; }
     .card-content h2 {
       font-size: 1.2rem;
       font-weight: 600;
@@ -185,6 +186,15 @@
         <div class="card-content">
           <h2>deep-research-bench (20260623T075056)</h2>
           <p>前 32 个 case</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="agent-concurrency/1280.html">
+        <div class="card-icon concurrency">⚡</div>
+        <div class="card-content">
+          <h2>agent-concurrency (并发测试)</h2>
+          <p>4 组并发数: 160 / 320 / 640 / 1280</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
