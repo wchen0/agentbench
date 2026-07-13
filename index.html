@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgentBench 可视化追踪</title>
+  <title>Agent Benchmark Trace Visualizer</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -66,8 +66,8 @@
       font-size: 1.4rem;
       flex-shrink: 0;
     }
-    .card-icon.verified     { background: #dbeafe; color: #2563eb; }
-    .card-icon.legacy      { background: #fef3c7; color: #d97706; }
+    .card-icon.verified    { background: #dbeafe; color: #2563eb; }
+    .card-icon.dr          { background: #fef3c7; color: #d97706; }
     .card-icon.rebench     { background: #d1fae5; color: #059669; }
     .card-icon.concurrency { background: #ede9fe; color: #7c3aed; }
     .card-content h2 {
@@ -96,24 +96,24 @@
 </head>
 <body>
   <div class="container">
-    <h1>📊 AgentBench 可视化追踪</h1>
-    <p class="subtitle">点击下方目录浏览对应的 benchmark 追踪数据</p>
+    <h1>Agent Benchmark Trace Visualizer</h1>
+    <p class="subtitle">Click on a category below to browse benchmark trace data</p>
 
     <div class="card-grid">
       <a class="card" href="swe-bench-verified/index.html">
         <div class="card-icon verified">📂</div>
         <div class="card-content">
           <h2>swe-bench-verified</h2>
-          <p>前 64 个 case</p>
+          <p>First 64 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
 
       <a class="card" href="swe-bench-verified-legacy/index.html">
-        <div class="card-icon legacy">🔄</div>
+        <div class="card-icon verified">🔄</div>
         <div class="card-content">
-          <h2>swe-bench-verified (旧数据)</h2>
-          <p>前 81 个 case (旧数据)</p>
+          <h2>swe-bench-verified (Legacy)</h2>
+          <p>First 81 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
@@ -122,7 +122,7 @@
         <div class="card-icon rebench">📂</div>
         <div class="card-content">
           <h2>swe-rebench (20260614T175711)</h2>
-          <p>前 64 个 case</p>
+          <p>First 64 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
@@ -131,61 +131,61 @@
         <div class="card-icon rebench">📂</div>
         <div class="card-content">
           <h2>swe-rebench (20260626T131158, arm+qemu, qwen3.7-max)</h2>
-          <p>前 40 个 case</p>
+          <p>First 40 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
 
       <a class="card" href="swe-rebench/index.html">
-        <div class="card-icon legacy">🔄</div>
+        <div class="card-icon rebench">🔄</div>
         <div class="card-content">
-          <h2>swe-rebench (旧数据)</h2>
-          <p>前 47 个 case</p>
+          <h2>swe-rebench (Legacy)</h2>
+          <p>First 47 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
 
       <a class="card" href="deep-research-bench-legacy/index.html">
-        <div class="card-icon rebench">📂</div>
+        <div class="card-icon dr">📂</div>
         <div class="card-content">
-          <h2>deep-research-bench (旧数据)</h2>
-          <p>前 7 个 case</p>
+          <h2>deep-research-bench (Legacy)</h2>
+          <p>First 7 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
 
       <a class="card" href="deep-research-bench-20260608T052302/index.html">
-        <div class="card-icon rebench">📂</div>
+        <div class="card-icon dr">📂</div>
         <div class="card-content">
           <h2>deep-research-bench (20260608T052302)</h2>
-          <p>前 10 个 case</p>
+          <p>First 10 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
 
       <a class="card" href="deep-research-bench-20260608T085739/index.html">
-        <div class="card-icon rebench">📂</div>
+        <div class="card-icon dr">📂</div>
         <div class="card-content">
           <h2>deep-research-bench (20260608T085739)</h2>
-          <p>前 53 个 case</p>
+          <p>First 53 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
 
       <a class="card" href="deep-research-bench-20260612T054015/index.html">
-        <div class="card-icon rebench">📂</div>
+        <div class="card-icon dr">📂</div>
         <div class="card-content">
           <h2>deep-research-bench (20260612T054015)</h2>
-          <p>前 13 个 case</p>
+          <p>First 13 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
 
       <a class="card" href="deep-research-bench-20260623T075056/index.html">
-        <div class="card-icon rebench">📂</div>
+        <div class="card-icon dr">📂</div>
         <div class="card-content">
           <h2>deep-research-bench (20260623T075056)</h2>
-          <p>前 32 个 case</p>
+          <p>First 32 cases</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
@@ -193,14 +193,14 @@
       <a class="card" href="agent-concurrency/index.html">
         <div class="card-icon concurrency">⚡</div>
         <div class="card-content">
-          <h2>agent-concurrency (并发测试)</h2>
-          <p>4 组并发数: 160 / 320 / 640 / 1280</p>
+          <h2>agent-concurrency (Concurrency Test)</h2>
+          <p>4 concurrency groups: 160 / 320 / 640 / 1280</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
     </div>
 
-    <footer>AgentBench &mdash; Agent Benchmark Trace Visualizer</footer>
+    <footer>Agent Benchmark Trace Visualizer</footer>
   </div>
 </body>
 </html>
