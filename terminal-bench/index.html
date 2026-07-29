@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Bench</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .container { max-width: 600px; width: 100%; }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.25rem;
+      color: #1a1a2e;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6b7280;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid transparent;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border-color: #0891b2;
+    }
+    .card-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+      background: #cffafe; color: #0891b2;
+    }
+    .card-content h2 {
+      font-size: 1.15rem; font-weight: 600; margin-bottom: 0.2rem;
+    }
+    .card-content p {
+      font-size: 0.85rem; color: #6b7280;
+    }
+    .card-arrow {
+      margin-left: auto; font-size: 1.2rem; color: #9ca3af;
+      transition: color 0.2s;
+    }
+    .card:hover .card-arrow { color: #0891b2; }
+    .back-link {
+      display: inline-block; margin-bottom: 1.5rem;
+      color: #6b7280; text-decoration: none; font-size: 0.9rem;
+    }
+    .back-link:hover { color: #0366d6; }
+    footer {
+      margin-top: 2.5rem; text-align: center;
+      font-size: 0.85rem; color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="../index.html">← Back to Home</a>
+    <h1>Terminal Bench</h1>
+    <p class="subtitle">Terminal-based benchmark traces</p>
+
+    <div class="card-grid">
+      <a class="card" href="build-tcc-qemu.html">
+        <div class="card-icon">🔧</div>
+        <div class="card-content">
+          <h2>Build TCC + QEMU</h2>
+          <p>Compile TCC and QEMU from source</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="compile-compcert.html">
+        <div class="card-icon">⚙️</div>
+        <div class="card-content">
+          <h2>Compile CompCert</h2>
+          <p>CompCert compiler build trace</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="hf-model-inference.html">
+        <div class="card-icon">🤖</div>
+        <div class="card-content">
+          <h2>HF Model Inference</h2>
+          <p>Hugging Face model inference benchmark</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="oom.html">
+        <div class="card-icon">💥</div>
+        <div class="card-content">
+          <h2>OOM (Out of Memory)</h2>
+          <p>Memory exhaustion scenario trace</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="predicate-pushdown-bench.html">
+        <div class="card-icon">📊</div>
+        <div class="card-content">
+          <h2>Predicate Pushdown Bench</h2>
+          <p>Query optimization benchmark</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="stable-parallel-kmeans.html">
+        <div class="card-icon">🧮</div>
+        <div class="card-content">
+          <h2>Stable Parallel K-Means</h2>
+          <p>Parallel clustering algorithm trace</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+    </div>
+
+    <footer>Agent Benchmark Trace Visualizer</footer>
+  </div>
+</body>
+</html>

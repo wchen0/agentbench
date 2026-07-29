@@ -70,6 +70,7 @@
     .card-icon.dr          { background: #fef3c7; color: #d97706; }
     .card-icon.rebench     { background: #d1fae5; color: #059669; }
     .card-icon.concurrency { background: #ede9fe; color: #7c3aed; }
+    .card-icon.terminal    { background: #cffafe; color: #0891b2; }
     .card-content h2 {
       font-size: 1.2rem;
       font-weight: 600;
@@ -195,6 +196,15 @@
         <div class="card-content">
           <h2>agent-concurrency (Concurrency Test)</h2>
           <p>4 concurrency groups: 160 / 320 / 640 / 1280</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a class="card" href="terminal-bench/index.html">
+        <div class="card-icon terminal">💻</div>
+        <div class="card-content">
+          <h2>terminal-bench</h2>
+          <p>6 terminal-based benchmark traces: TCC+QEMU, CompCert, HF Inference, OOM, Predicate Pushdown, K-Means</p>
         </div>
         <span class="card-arrow">→</span>
       </a>
